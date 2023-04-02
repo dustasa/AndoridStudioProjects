@@ -20,11 +20,12 @@ fun main() {
         else -> println("Invalid inputting")
     }
 
-    val x = 4
+    val x:Any = 20 //Any声明x可为任意类型变量，而不是局限int
 
     when(x) {
         2, 3, 5, 7 -> println("x is a prime number between 1 and 10.")
         in 1..10 -> println("x is a prime number between 1 and 10.but not a prime number.")
+        is Int -> println("x is a integer number, but not a prime number.")
         else -> println("x isn't a prime number between 1 and 10.")
     }
 }
