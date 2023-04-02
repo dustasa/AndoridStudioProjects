@@ -49,9 +49,20 @@ fun main() {
 //            println("favoriteActor3 is null")
 //        }
 
-    val lengthOfName =
-        if (favoriteActor3 != null) favoriteActor3.length
-        else 0
+//    val lengthOfName =
+//        if (favoriteActor3 != null) favoriteActor3.length
+//        else 0
+
+    // 使用 ?: Elvis 运算符改写
+    // ?: Elvis 运算符可以与 ?. 安全调用运算符搭配使用。如果搭配使用 ?: Elvis 运算符，
+    // 您便可以在 ?. 安全调用运算符返回 null 时添加默认值。
+    // 这与 if/else 表达式类似，但更为常用。
+    // ?: Elvis 运算符是用摇滚明星 Elvis Presley（猫王）的名字命名的，
+    // 因为它看起来就像是从侧面观察猫王 quiff 发型的表情符。
+    favoriteActor3 = null
+//    val lengthOfName = favoriteActor3 ?. length
+    // null时输出0
+    val lengthOfName = favoriteActor3 ?. length ?: 0
 
     println("The number of characters in your favorite actor's name is $lengthOfName.")
 }
