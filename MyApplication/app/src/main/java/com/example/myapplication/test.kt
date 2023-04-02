@@ -3,22 +3,31 @@ package com.example.myapplication
 fun main() {
     val trafficLightColor = "Red"
 
-//    if (trafficLightColor == "Red") {
-//        println("stop")
-//    } else if (trafficLightColor == "Yellow") {
-//        println("slow")
-//    } else if (trafficLightColor == "Green") {
-//        println("go")
-//    } else {
-//        println("Invalid inputting ")
-//    }
+    // 将if语句转化成表达式
+//    val message  =
+//        if (trafficLightColor == "Red") "stop"
+//        else if (trafficLightColor == "Yellow") "slow"
+//        else if (trafficLightColor == "Green") "go"
+//        else "Invalid inputting "
+//    println(message)
 
-    when(trafficLightColor) {
-        "Red" ->  println("stop")
-        "Yellow" -> println("slow")
-        "Green" -> println("go")
-        else -> println("Invalid inputting")
-    }
+
+//    when(trafficLightColor) {
+//        "Red" ->  println("stop")
+//        "Yellow" -> println("slow")
+//        "Green" -> println("go")
+//        else -> println("Invalid inputting")
+//    }
+    // 将when语句转化成表达式
+    // 在大多数情况下，when 表达式需要 else 分支
+    val message =
+        when(trafficLightColor) {
+            "Red" ->  "stop"
+            "Yellow" -> "slow"
+            "Green" -> "go"
+            else -> "Invalid inputting"
+        }
+    println(message)
 
     val x:Any = 20 //Any声明x可为任意类型变量，而不是局限int
 
