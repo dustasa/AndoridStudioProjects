@@ -65,4 +65,14 @@ fun main() {
     val lengthOfName = favoriteActor3 ?. length ?: 0
 
     println("The number of characters in your favorite actor's name is $lengthOfName.")
+
+    /*
+    可以将变量设置为 null，以表示该变量不存储任何值。
+    不可将 null 赋给不可为 null 的变量。
+    可将 null 赋给可为 null 的变量。
+    若要访问可为 null 的变量的方法或属性，您需要使用 ?. 安全调用运算符或 !! 非 null 断言运算符。
+    您可以将 if/else 语句与 null 检查搭配使用，以在不可为 null 的上下文中访问可为 null 的变量。
+    您可以使用 if/else 表达式将可为 null 的变量转换为不可为 null 类型。
+    您可以使用 if/else 表达式或 ?: Elvis 运算符，在可为 null 的变量为 null 时，提供默认值。
+     */
 }
