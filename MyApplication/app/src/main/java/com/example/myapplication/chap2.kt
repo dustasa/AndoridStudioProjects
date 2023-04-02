@@ -13,4 +13,10 @@ fun main() {
 
     favoriteActor = null
     println(favoriteActor)
+
+    var number:Int ?= 1
+    println(number)
+
+    number = 10
+    println(number)
 }
