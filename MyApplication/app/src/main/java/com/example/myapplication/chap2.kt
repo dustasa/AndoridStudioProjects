@@ -11,19 +11,41 @@ fun main() {
     favoriteActor = "zhaojinmai"
     println(favoriteActor)
     println(favoriteActor.length)
-
-    var favoriteActor2: String? = "Sandra Oh"
-    println(favoriteActor2.length)
-
-
     favoriteActor = null
     println(favoriteActor)
-
+    // Int type var
     var number:Int ?= 1
     println(number)
-
     number = 10
     println(number)
 
+    var favoriteActor2: String? = "Sandra Oh"
+//    println(favoriteActor2.length)
+    // 使用 ?. 安全调用运算符访问方法或属性
+    // 在变量名称后面添加 ? 符号
+    // 并使用 . 表示法访问方法或属性
+    println(favoriteActor2?.length)
+    // 尝试访问 null 变量的 length 属性，该程序也不会崩溃。
+    // 安全调用表达式只会返回 null。
+    favoriteActor2 = null
+    println(favoriteActor2?.length)
+    // 使用 !! 非 null 断言运算符
+    var favoriteActor3: String? = "Sandra Oh"
+//    println("favoriteActor3.length"+ favoriteActor3.length)
+//    println("favoriteActor3?.length" + favoriteActor3?.length)
+//    println("favoriteActor3!!.length" + favoriteActor3!!.length)
+
+//    favoriteActor3 = null
+//    println("favoriteActor3.length"+ favoriteActor3.length)
+//    println("favoriteActor3?.length" + favoriteActor3?.length)
+//    println("favoriteActor3!!.length" + favoriteActor3!!.length)
+
+    // if/else， 引入null检查
+    if (favoriteActor3 != null) {
+        println("The number of characters in your favorite actor's name " +
+                "is ${favoriteActor3.length}.")
+    } else {
+        println("favoriteActor3 is null")
+    }
 
 }
