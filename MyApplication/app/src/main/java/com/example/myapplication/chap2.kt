@@ -41,11 +41,17 @@ fun main() {
 //    println("favoriteActor3!!.length" + favoriteActor3!!.length)
 
     // if/else， 引入null检查
-    if (favoriteActor3 != null) {
-        println("The number of characters in your favorite actor's name " +
-                "is ${favoriteActor3.length}.")
-    } else {
-        println("favoriteActor3 is null")
-    }
+//    val lengthOfNumber =
+//        if (favoriteActor3 != null) {
+//        println("The number of characters in your favorite actor's name " +
+//                "is ${favoriteActor3.length}.")
+//        } else {
+//            println("favoriteActor3 is null")
+//        }
 
+    val lengthOfName =
+        if (favoriteActor3 != null) favoriteActor3.length
+        else 0
+
+    println("The number of characters in your favorite actor's name is $lengthOfName.")
 }
