@@ -20,10 +20,11 @@ fun main() {
         else -> println("Invalid inputting")
     }
 
-    val x = 3
+    val x = 4
 
     when(x) {
         2, 3, 5, 7 -> println("x is a prime number between 1 and 10.")
+        in 1..10 -> println("x is a prime number between 1 and 10.but not a prime number.")
         else -> println("x isn't a prime number between 1 and 10.")
     }
 }
