@@ -7,13 +7,14 @@ package com.example.myapplication
 open class SmartDevice3 (val name: String, val category: String ) {
     // superclass parent
     // 引入open关键词用于继承扩展
+    // 将可重复使用的代码从 SmartTvDevice 和 SmartLightDevice 子类移至 SmartDevice 父类
     var deviceStatus = "online"
     open fun turnOn() {
-        println("Smart device is turned on.")
+        deviceStatus = "on"
     }
 
     open fun turnOff() {
-        println("Smart device is turned off.")
+        deviceStatus = "off"
     }
 }
 
@@ -45,7 +46,8 @@ class SmartTVDevice (deviceName: String, deviceCategory: String)
         }
 
     override fun turnOn() {
-        deviceStatus = "on"
+//        deviceStatus = "on"
+        super.turnOn()
         println(
             "$name is turned on. Speaker volume is set to $speakerVolume and channel number is " +
                     "set to $channelNumber."
@@ -53,7 +55,8 @@ class SmartTVDevice (deviceName: String, deviceCategory: String)
     }
 
     override fun turnOff() {
-        deviceStatus = "off"
+        super.turnOff()
+//        deviceStatus = "off"
         println("$name is turn off")
     }
 
@@ -83,13 +86,15 @@ class SmartLightDevice (deviceName: String, deviceCategory: String)
 
     // 重写父类中的turnOn/Off方法
     override fun turnOn() {
-        deviceStatus = "on"
+//        deviceStatus = "on"
+        super.turnOn()
         brightnessLevel = 2
         println("$name turned on. The brightness level is $brightnessLevel.")
     }
 
     override fun turnOff() {
-        deviceStatus = "off"
+//        deviceStatus = "off"
+        super.turnOff()
         brightnessLevel = 0
         println("smart light device is off")
     }
