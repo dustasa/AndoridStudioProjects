@@ -7,11 +7,12 @@ package com.example.myapplication
 open class SmartDevice3 (val name: String, val category: String ) {
     // superclass parent
     // 引入open关键词用于继承扩展
-    fun turnOn() {
+    var deviceStatus = "online"
+    open fun turnOn() {
         println("Smart device is turned on.")
     }
 
-    fun turnOff() {
+    open fun turnOff() {
         println("Smart device is turned off.")
     }
 }
@@ -43,6 +44,18 @@ class SmartTVDevice (deviceName: String, deviceCategory: String)
             }
         }
 
+    override fun turnOn() {
+        deviceStatus = "on"
+        println(
+            "$name is turned on. Speaker volume is set to $speakerVolume and channel number is " +
+                    "set to $channelNumber."
+        )
+    }
+
+    override fun turnOff() {
+        deviceStatus = "off"
+        println("$name is turn off")
+    }
 
     // 定义会调高音量并输出 "Speaker volume increased to $speakerVolume."
     // 字符串的 increaseSpeakerVolume() 方法
@@ -60,24 +73,42 @@ class SmartTVDevice (deviceName: String, deviceCategory: String)
 // 智能台灯设备
 class SmartLightDevice (deviceName: String, deviceCategory: String)
     : SmartDevice3(name = deviceName, category = deviceCategory) {
+
     var brightnessLevel = 0
         set(value) {
             if (value in 1..100) {
                 field = value
             }
         }
+
+    // 重写父类中的turnOn/Off方法
+    override fun turnOn() {
+        deviceStatus = "on"
+        brightnessLevel = 2
+        println("$name turned on. The brightness level is $brightnessLevel.")
+    }
+
+    override fun turnOff() {
+        deviceStatus = "off"
+        brightnessLevel = 0
+        println("smart light device is off")
+    }
+
     // 定义会调高灯具亮度并输出 "Brightness increased to $brightnessLevel."
     // 字符串的 increaseBrightness() 方法
     fun increaseBrightness() {
         brightnessLevel++
         print("Brightness increased to $brightnessLevel.")
     }
+
+
 }
 
 // HAS-A 关系是指定两个类之间的关系的另一种方式。例如，您可能要使用住宅中的智能电视。
 // 在这种情况下，智能电视和住宅之间存在某种关系。
 // 住宅中包含智能设备，即住宅“拥有”智能设备。两个类之间的 HAS-A 关系也称为“组合”
 class SmartHome(val smartTVDevice: SmartTVDevice, val smartLightDevice: SmartLightDevice) {
+    // 替换子类中的父类方法
     fun turnOnTv() {
         smartTVDevice.turnOn()
     }
@@ -113,6 +144,10 @@ class SmartHome(val smartTVDevice: SmartTVDevice, val smartLightDevice: SmartLig
 }
 
 fun main() {
-    val smartTV = SmartTVDevice(deviceName = "andorid TV", deviceCategory = "entertainment")
+//    val smartTV = SmartTVDevice(deviceName = "andorid TV", deviceCategory = "entertainment")
+    var smartDevice: SmartDevice3 = SmartTVDevice("Android TV", "Entertainment")
+    smartDevice.turnOn()
 
+    smartDevice = SmartLightDevice(deviceName = "xiaomi light", deviceCategory = "light")
+    smartDevice.turnOn()
 }
