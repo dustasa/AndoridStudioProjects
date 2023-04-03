@@ -7,7 +7,13 @@ package com.example.myapplication
 open class SmartDevice3 (val name: String, val category: String ) {
     // superclass parent
     // 引入open关键词用于继承扩展
+    fun turnOn() {
+        println("Smart device is turned on.")
+    }
 
+    fun turnOff() {
+        println("Smart device is turned off.")
+    }
 }
 
 // 智能电视设备
@@ -36,6 +42,7 @@ class SmartTVDevice (deviceName: String, deviceCategory: String)
                 field = value
             }
         }
+
 
     // 定义会调高音量并输出 "Speaker volume increased to $speakerVolume."
     // 字符串的 increaseSpeakerVolume() 方法
@@ -67,6 +74,43 @@ class SmartLightDevice (deviceName: String, deviceCategory: String)
     }
 }
 
+// HAS-A 关系是指定两个类之间的关系的另一种方式。例如，您可能要使用住宅中的智能电视。
+// 在这种情况下，智能电视和住宅之间存在某种关系。
+// 住宅中包含智能设备，即住宅“拥有”智能设备。两个类之间的 HAS-A 关系也称为“组合”
+class SmartHome(val smartTVDevice: SmartTVDevice, val smartLightDevice: SmartLightDevice) {
+    fun turnOnTv() {
+        smartTVDevice.turnOn()
+    }
+
+    fun turnOffTv() {
+        smartTVDevice.turnOff()
+    }
+
+    fun increaseTvVolume() {
+        smartTVDevice.increaseSpeakerVolume()
+    }
+
+    fun changeTvChannelToNext() {
+        smartTVDevice.nextChannel()
+    }
+
+    fun turnOnLight() {
+        smartLightDevice.turnOn()
+    }
+
+    fun turnOffLight() {
+        smartLightDevice.turnOff()
+    }
+
+    fun increaseLightBrightness() {
+        smartLightDevice.increaseBrightness()
+    }
+
+    fun turnOffAllDevices() {
+        turnOffTv()
+        turnOffLight()
+    }
+}
 
 fun main() {
     val smartTV = SmartTVDevice(deviceName = "andorid TV", deviceCategory = "entertainment")
