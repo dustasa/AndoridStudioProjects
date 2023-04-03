@@ -10,6 +10,7 @@ open class SmartDevice3 (val name: String, val category: String ) {
 
 }
 
+// 智能电视设备
 class SmartTVDevice (deviceName: String, deviceCategory: String)
     : SmartDevice3(name = deviceName, category = deviceCategory) {
     // SmartTvDevice 的 constructor 定义没有指定属性是可变的还是不可变的
@@ -42,6 +43,22 @@ class SmartTVDevice (deviceName: String, deviceCategory: String)
     fun nextChannel() {
         channelNumber++
         println("Channel number increased to $channelNumber.")
+    }
+}
+// 智能台灯设备
+class SmartLightDevice (deviceName: String, deviceCategory: String)
+    : SmartDevice3(name = deviceName, category = deviceCategory) {
+    var brightnessLevel = 0
+        set(value) {
+            if (value in 1..100) {
+                field = value
+            }
+        }
+    // 定义会调高灯具亮度并输出 "Brightness increased to $brightnessLevel."
+    // 字符串的 increaseBrightness() 方法
+    fun increaseBrightness() {
+        brightnessLevel++
+        print("Brightness increased to $brightnessLevel.")
     }
 }
 
