@@ -9,6 +9,7 @@ open class SmartDevice3 (val name: String, val category: String ) {
     // 引入open关键词用于继承扩展
     // 将可重复使用的代码从 SmartTvDevice 和 SmartLightDevice 子类移至 SmartDevice 父类
     var deviceStatus = "online"
+    open val deviceType = "unknown"
     open fun turnOn() {
         deviceStatus = "on"
     }
@@ -29,6 +30,8 @@ class SmartTVDevice (deviceName: String, deviceCategory: String)
     // SmartTvDevice 的 constructor 定义没有指定属性是可变的还是不可变的
     // deviceName 和 deviceCategory 形参只是 constructor 形参，而不是类属性。
     // 在类中无法使用这些形参，只能将其传递给父类构造函数
+
+    override val deviceType = "Android TV"
 
     var speakerVolume: Int = 2
         set(value) {
@@ -76,6 +79,7 @@ class SmartTVDevice (deviceName: String, deviceCategory: String)
 // 智能台灯设备
 class SmartLightDevice (deviceName: String, deviceCategory: String)
     : SmartDevice3(name = deviceName, category = deviceCategory) {
+    override val deviceType = "XiaoMi Light"
 
     var brightnessLevel = 0
         set(value) {
