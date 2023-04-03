@@ -11,6 +11,11 @@ open class SmartDevice3 (val name: String, val category: String ) {
 }
 
 // 智能电视设备
+// IS-A 关系
+// Smart TV IS-A smart device.
+// 在 SmartDevice 父类和 SmartTvDevice 子类之间指定 IS-A 关系，
+// 即表示 SmartDevice 父类可以执行的操作，SmartTvDevice 子类也可执行。
+// 这种关系是单向的，因此可以说每个智能电视“都是”智能设备，但不能说每个智能设备“都是”智能电视。
 class SmartTVDevice (deviceName: String, deviceCategory: String)
     : SmartDevice3(name = deviceName, category = deviceCategory) {
     // SmartTvDevice 的 constructor 定义没有指定属性是可变的还是不可变的
@@ -61,6 +66,7 @@ class SmartLightDevice (deviceName: String, deviceCategory: String)
         print("Brightness increased to $brightnessLevel.")
     }
 }
+
 
 fun main() {
     val smartTV = SmartTVDevice(deviceName = "andorid TV", deviceCategory = "entertainment")
